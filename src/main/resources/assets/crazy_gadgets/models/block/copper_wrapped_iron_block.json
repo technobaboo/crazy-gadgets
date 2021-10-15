@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/cube_bottom_top",
+	"textures": {
+		"side": "crazy_gadgets:block/copper_wrapped_iron_block_side",
+		"top": "crazy_gadgets:block/copper_wrapped_iron_block_top",
+		"bottom": "crazy_gadgets:block/copper_wrapped_iron_block_top",
+		"particle": "crazy_gadgets:block/copper_wrapped_iron_block_side"
+	}
+}

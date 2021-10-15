@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"facing=north": { "model": "crazy_gadgets:block/chrono_displacer", "x": 90,  "y": 0,   "uvlock": false },
+		"facing=east":  { "model": "crazy_gadgets:block/chrono_displacer", "x": 90,  "y": 90,  "uvlock": false },
+		"facing=south": { "model": "crazy_gadgets:block/chrono_displacer", "x": 90,  "y": 180, "uvlock": false },
+		"facing=west":  { "model": "crazy_gadgets:block/chrono_displacer", "x": 90,  "y": -90, "uvlock": false },
+		"facing=up":    { "model": "crazy_gadgets:block/chrono_displacer", "x": 0,   "y": 0,   "uvlock": false },
+		"facing=down":  { "model": "crazy_gadgets:block/chrono_displacer", "x": 180, "y": 0,   "uvlock": false }
+	}
+}

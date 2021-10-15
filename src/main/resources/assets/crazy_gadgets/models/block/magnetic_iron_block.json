@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/cube_bottom_top",
+	"textures": {
+		"side": "crazy_gadgets:block/magnetic_iron_block_side",
+		"top": "crazy_gadgets:block/magnetic_iron_block_top",
+		"bottom": "crazy_gadgets:block/magnetic_iron_block_bottom",
+		"particle": "crazy_gadgets:block/magnetic_iron_block_side"
+	}
+}

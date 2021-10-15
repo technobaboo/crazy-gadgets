@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"III",
+		"III",
+		"III"
+	],
+	"key": {
+		"I": {
+			"item": "crazy_gadgets:magnetic_iron_ingot"
+		}
+	},
+	"result": {
+		"item": "crazy_gadgets:magnetic_iron_block",
+		"count": 1
+	}
+}

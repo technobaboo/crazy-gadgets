@@ -1,29 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "crazy_gadgets",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Crazy Gadgets",
+  "description": "A mod to implement common gadgets and tech of other mods all in 1 place",
   "authors": [
-    "Me!"
+    "Nova King (technobaboo)"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/technobaboo/crazy-gadgets"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/crazy_gadgets/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "com.technobaboo.crazygadgets.CrazyGadgetsMod"
+    ],
+    "client": [
+      "com.technobaboo.crazygadgets.CrazyGadgetsMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "crazy_gadgets.mixins.json"
   ],
 
   "depends": {
@@ -31,8 +33,5 @@
     "fabric": "*",
     "minecraft": "1.17.x",
     "java": ">=16"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "crazy_gadgets:item/redstone_infused_copper_ingot"
+	}
+}

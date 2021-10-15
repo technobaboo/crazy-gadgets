@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"scorched=false": { "model": "crazy_gadgets:block/magnetic_iron_block"},
+		"scorched=true": { "model": "crazy_gadgets:block/magnetic_iron_block_scorched"}
+	}
+}
