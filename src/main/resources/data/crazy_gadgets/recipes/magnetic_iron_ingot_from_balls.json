@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"BBB",
+		"BBB",
+		"BBB"
+	],
+	"key": {
+		"B": {
+			"item": "crazy_gadgets:magnetic_iron_ball"
+		}
+	},
+	"result": {
+		"item": "crazy_gadgets:magnetic_iron_ingot",
+		"count": 1
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "crazy_gadgets:copper_sheet"
+	},
+	"result": "crazy_gadgets:copper_plate",
+	"count": 4
+}

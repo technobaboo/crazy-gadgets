@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "crazy_gadgets:magnetic_iron_ingot"
+		}
+	],
+	"result": {
+		"item": "crazy_gadgets:magnetic_iron_ball",
+		"count": 9
+	}
+}

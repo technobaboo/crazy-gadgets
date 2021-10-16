@@ -4,21 +4,16 @@ import java.util.List;
 import java.util.Optional;
 
 import com.technobaboo.crazygadgets.entity.CaptureBallEntity;
-import com.technobaboo.crazygadgets.entity.ChronoPearlEntity;
 
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.block.dispenser.ItemDispenserBehavior;
-import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.texture.NativeImage.Format;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Tameable;
+import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -33,8 +28,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Position;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -53,7 +46,11 @@ public class CaptureBallItem extends Item {
 					NbtCompound itemNbt = newOrb.getOrCreateNbt();
 					NbtCompound entityNbt = newOrb.getOrCreateSubNbt("CapturedEntity");
 					entity.saveNbt(entityNbt);
-					if(entity instanceof PassiveEntity)
+					if(entity instanceof Tameable)
+						itemNbt.putString("CapturedEntityType", "tameable");
+					else if(entity instanceof Angerable)
+						itemNbt.putString("CapturedEntityType", "neutral");
+					else if(entity instanceof PassiveEntity)
 						itemNbt.putString("CapturedEntityType", "passive");
 					else if(entity instanceof HostileEntity)
 						itemNbt.putString("CapturedEntityType", "hostile");
@@ -137,6 +134,10 @@ public class CaptureBallItem extends Item {
 					formatting = Formatting.RED;
 				else if(entityTypeString == "passive")
 					formatting = Formatting.GREEN;
+				else if(entityTypeString == "neutral")
+					formatting = Formatting.YELLOW;
+				else if(entityTypeString == "tameable")
+					formatting = Formatting.AQUA;
 
 				tooltip.add( new TranslatableText("entity."+entityID.getNamespace()+"."+entityID.getPath()).formatted(formatting) );
 			}

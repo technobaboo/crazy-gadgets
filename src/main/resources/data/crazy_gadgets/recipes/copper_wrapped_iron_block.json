@@ -10,7 +10,7 @@
 			"item": "minecraft:iron_block"
 		},
 		"C": {
-			"item": "minecraft:copper_ingot"
+			"item": "crazy_gadgets:copper_wire"
 		}
 	},
 	"result": {

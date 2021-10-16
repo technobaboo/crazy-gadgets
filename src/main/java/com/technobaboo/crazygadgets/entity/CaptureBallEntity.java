@@ -9,12 +9,14 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Tameable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
@@ -60,7 +62,11 @@ public class CaptureBallEntity extends ThrownItemEntity {
 			NbtCompound itemNbt = item.getOrCreateNbt();
 			NbtCompound entityNbt = item.getOrCreateSubNbt("CapturedEntity");
 			entity.saveNbt(entityNbt);
-			if(entity instanceof PassiveEntity)
+			if(entity instanceof Tameable)
+				itemNbt.putString("CapturedEntityType", "tameable");
+			else if(entity instanceof Angerable)
+				itemNbt.putString("CapturedEntityType", "neutral");
+			else if(entity instanceof PassiveEntity)
 				itemNbt.putString("CapturedEntityType", "passive");
 			else if(entity instanceof HostileEntity)
 				itemNbt.putString("CapturedEntityType", "hostile");
