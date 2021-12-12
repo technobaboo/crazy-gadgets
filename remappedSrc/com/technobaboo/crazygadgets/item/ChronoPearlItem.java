@@ -25,7 +25,7 @@ public class ChronoPearlItem extends Item {
 		if (!world.isClient) {
 			ChronoPearlEntity chronoPearlEntity = new ChronoPearlEntity(world, user);
 			chronoPearlEntity.setItem(stackInHand);
-//			chronoPearlEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
+			chronoPearlEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
 			world.spawnEntity(chronoPearlEntity);
 		}
 		user.incrementStat(Stats.USED.getOrCreateStat(this));

@@ -111,7 +111,7 @@ public class CaptureBallItem extends Item {
 		if (!world.isClient) {
 			CaptureBallEntity captureBallEntity = new CaptureBallEntity(world, user);
 			captureBallEntity.setItem(stack);
-//			captureBallEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
+			captureBallEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
 			world.spawnEntity(captureBallEntity);
 		}
 		user.incrementStat(Stats.USED.getOrCreateStat(this));

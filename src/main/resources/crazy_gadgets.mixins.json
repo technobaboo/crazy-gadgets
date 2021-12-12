@@ -1,14 +1,16 @@
 {
-	"required": true,
-	"minVersion": "0.8",
-	"package": "com.technobaboo.crazygadgets.mixin",
-	"compatibilityLevel": "JAVA_16",
-	"mixins": [
-		"LightningRodBlockMixin"
-	],
-	"client": [],
-	"server": [],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.technobaboo.crazygadgets.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "LightningRodBlockMixin",
+    "LivingEntityTickMixin",
+    "PlayerTickMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

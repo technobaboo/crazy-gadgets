@@ -1,30 +1,38 @@
 plugins {
-	id 'fabric-loom' version '0.9-SNAPSHOT'
+	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	maven {
+		name "Siphalor's Maven"
+		url "https://maven.siphalor.de"
+	}
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+	maven {
+		name = "Ladysnake Libs"
+		url = "https://ladysnake.jfrog.io/artifactory/mods"
+	}
 }
 
+
 dependencies {
-    minecraft "com.mojang:minecraft:1.17.1"
-    mappings "net.fabricmc:yarn:1.17.1+build.61:v2"
-    modImplementation "net.fabricmc:fabric-loader:0.12.1"
-            
-    //Fabric api
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.40.8+1.17"
+	minecraft "com.mojang:minecraft:1.18.1"
+	mappings "net.fabricmc:yarn:1.18.1+build.2:v2"
+	modImplementation "net.fabricmc:fabric-loader:0.12.11"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:0.44.0+1.18"
+	modImplementation "de.siphalor:nbtcrafting-1.18"
+	modImplementation "dev.emi:trinkets:3.0.4+"
 }
 
 processResources {
