@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"WPW",
+		"PDP",
+		"WPW"
+	],
+	"key": {
+		"D": {
+			"item": "crazy_gadgets:magnetic_deflector"
+		},
+		"P": {
+			"item": "crazy_gadgets:chrono_pearl"
+		},
+		"W": {
+			"item": "crazy_gadgets:copper_wire"
+		}
+	},
+	"result": {
+		"item": "crazy_gadgets:capture_ball",
+		"count": 1
+	}
+}

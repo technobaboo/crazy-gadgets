@@ -121,7 +121,7 @@ public class ChronoPearlEntity extends ThrownItemEntity {
 	}
 
 	static {
-		ENTITY_NBT = DataTracker.registerData(ChronoPearlEntity.class, TrackedDataHandlerRegistry.TAG_COMPOUND);
+		ENTITY_NBT = DataTracker.registerData(ChronoPearlEntity.class, TrackedDataHandlerRegistry.NBT_COMPOUND);
 		TIMEOUT = DataTracker.registerData(ChronoPearlEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	}
 }

@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CCC",
+		"CXC",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "crazy_gadgets:copper_wire"
+		},
+		"X": {
+			"item": "crazy_gadgets:magnetic_iron_block"
+		}
+	},
+	"result": {
+		"item": "crazy_gadgets:magnetic_deflector",
+		"count": 1
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" D ",
+		"DOD",
+		" D "
+	],
+	"key": {
+		"O": {
+			"item": "minecraft:ender_pearl"
+		},
+		"D": {
+			"item": "minecraft:quartz"
+		}
+	},
+	"result": {
+		"item": "crazy_gadgets:chrono_pearl",
+		"count": 1
+	}
+}

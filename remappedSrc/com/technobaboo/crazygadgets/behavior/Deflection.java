@@ -37,7 +37,7 @@ public class Deflection {
             for (Entity entity : deflectableEntities) {
                 Vec3d direction = centerPos.subtract(entity.getPos()).normalize();
                 double angle = Math.acos(direction.dotProduct(entity.getVelocity().normalize()));
-                System.out.println(Math.toDegrees(angle));
+//                System.out.println(Math.toDegrees(angle));
                 if(angle < Math.toRadians(60)) {
                     double speed = entity.getVelocity().length();
                     ProjectileEntity projectile = (ProjectileEntity) entity;

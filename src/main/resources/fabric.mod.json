@@ -2,37 +2,33 @@
   "schemaVersion": 1,
   "id": "crazy_gadgets",
   "version": "${version}",
-
   "name": "Crazy Gadgets",
-  "description": "A mod to implement common gadgets and tech of other mods all in 1 place",
+  "description": "A semi-realistic tech mod with unique and powerful items",
   "authors": [
     "Nova King (technobaboo)"
   ],
   "contact": {
     "sources": "https://github.com/technobaboo/crazy-gadgets"
   },
-
   "license": "MIT",
   "icon": "assets/crazy_gadgets/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.technobaboo.crazygadgets.CrazyGadgetsMod"
+      "com.technobaboo.crazygadgets.CrazyGadgets"
     ],
     "client": [
-      "com.technobaboo.crazygadgets.CrazyGadgetsMod"
+      "com.technobaboo.crazygadgets.client.CrazyGadgetsClient"
     ]
   },
   "mixins": [
     "crazy_gadgets.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "minecraft": ">=1.18.1",
     "java": ">=16",
-    "nbtcrafting": "*"
+    "trinkets": ">=3.1.0"
   }
 }

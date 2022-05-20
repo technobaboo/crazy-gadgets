@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class CrazyGadgetsBlocks {
-	public static final Block CHRONO_DISPLACER = new ChronoDisplacer(FabricBlockSettings.of(Material.METAL, MapColor.BRIGHT_RED).requiresTool().strength(4.0F, 6.0F).sounds(BlockSoundGroup.METAL));
+//	public static final Block CHRONO_DISPLACER = new ChronoDisplacer(FabricBlockSettings.of(Material.METAL, MapColor.BRIGHT_RED).requiresTool().strength(4.0F, 6.0F).sounds(BlockSoundGroup.METAL));
 	public static final Block COPPER_WRAPPED_IRON_BLOCK = new Block(FabricBlockSettings.of(Material.METAL, MapColor.DULL_RED).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL));
 	public static final Block MAGNETIC_IRON_BLOCK = new MagneticIronBlock(FabricBlockSettings.of(Material.METAL, MapColor.BLUE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.NETHERITE));
 

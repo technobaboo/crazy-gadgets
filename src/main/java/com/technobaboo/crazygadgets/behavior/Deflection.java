@@ -21,6 +21,7 @@ public class Deflection {
     private static final Vec3d radiusVector = new Vec3d(radius, radius, radius);
 
     private static Vec3d deflectingEntityCenter;
+
     protected static boolean isDeflectable(Entity entity) {
         final boolean inRadius = entity.getPos().subtract(deflectingEntityCenter).lengthSquared() < radiusSqr;
         final boolean isProjectile = entity instanceof ProjectileEntity;
@@ -29,26 +30,27 @@ public class Deflection {
 
     public static void handleDeflectProjectile(LivingEntity thisObject) {
         Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(thisObject);
-        if(component.isPresent() && component.get().isEquipped(MAGNETIC_DEFLECTOR)) {
+        if (component.isPresent() && component.get().isEquipped(MAGNETIC_DEFLECTOR)) {
             Vec3d centerPos = thisObject.getPos().add(0, thisObject.getHeight() / 2, 0);
             deflectingEntityCenter = centerPos;
             Box deflectionBox = new Box(centerPos.add(radiusVector), centerPos.subtract(radiusVector));
-            List<Entity> deflectableEntities = thisObject.world.getOtherEntities(thisObject, deflectionBox, Deflection::isDeflectable);
+            List<Entity> deflectableEntities = thisObject.world.getOtherEntities(thisObject, deflectionBox,
+                    Deflection::isDeflectable);
             for (Entity entity : deflectableEntities) {
                 Vec3d direction = centerPos.subtract(entity.getPos()).normalize();
                 double angle = Math.acos(direction.dotProduct(entity.getVelocity().normalize()));
-                System.out.println(Math.toDegrees(angle));
-                if(angle < Math.toRadians(60)) {
+                // System.out.println(Math.toDegrees(angle));
+                if (angle < Math.toRadians(60)) {
                     double speed = entity.getVelocity().length();
                     ProjectileEntity projectile = (ProjectileEntity) entity;
-                    if(projectile.getOwner() != null && projectile.getOwner().getUuid() == thisObject.getUuid()) {
+                    if (projectile.getOwner() != null && projectile.getOwner().getUuid() == thisObject.getUuid()) {
                         continue;
                     }
-//                    entity.setVelocity(direction.multiply(-speed));
+                    // entity.setVelocity(direction.multiply(-speed));
                     projectile.setVelocity(direction.x, direction.y, direction.z, (float) -speed, 0);
-//                    projectile.damage(DamageSource.magic(projectile, projectile), 0);
-//                    projectile.setOwner(thisObject);
-                    if(projectile instanceof ExplosiveProjectileEntity) {
+                    // projectile.damage(DamageSource.magic(projectile, projectile), 0);
+                    // projectile.setOwner(thisObject);
+                    if (projectile instanceof ExplosiveProjectileEntity) {
                         ExplosiveProjectileEntity explosiveProjectile = (ExplosiveProjectileEntity) projectile;
                         explosiveProjectile.powerX = -direction.x * 0.1D;
                         explosiveProjectile.powerY = -direction.y * 0.1D;

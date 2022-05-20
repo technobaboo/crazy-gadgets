@@ -1,4 +1,6 @@
-package com.technobaboo.crazygadgets.entity;
+package com.technobaboo.crazygadgets.client.renderers;
+
+import com.technobaboo.crazygadgets.entity.ChronoPearlEntity;
 
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
@@ -11,8 +13,9 @@ public class ChronoPearlEntityRenderer extends FlyingItemEntityRenderer<ChronoPe
 	}
 
 	@Override
-	public void render(ChronoPearlEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-		if(entity.getDataTracker().get(ChronoPearlEntity.ENTITY_NBT).isEmpty())
+	public void render(ChronoPearlEntity entity, float yaw, float tickDelta, MatrixStack matrices,
+			VertexConsumerProvider vertexConsumers, int light) {
+		if (entity.getDataTracker().get(ChronoPearlEntity.ENTITY_NBT).isEmpty())
 			super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
 	}
 }

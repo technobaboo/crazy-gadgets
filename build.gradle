@@ -27,12 +27,12 @@ repositories {
 
 
 dependencies {
-	minecraft "com.mojang:minecraft:1.18.1"
-	mappings "net.fabricmc:yarn:1.18.1+build.2:v2"
-	modImplementation "net.fabricmc:fabric-loader:0.12.11"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:0.44.0+1.18"
-	modImplementation "de.siphalor:nbtcrafting-1.18"
-	modImplementation "dev.emi:trinkets:3.0.4+"
+	minecraft "com.mojang:minecraft:1.18.2"
+	mappings "net.fabricmc:yarn:1.18.2+build.3"
+	modImplementation "net.fabricmc:fabric-loader:0.14.5"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:0.51.1+1.18.2"
+//	modImplementation "de.siphalor:nbtcrafting-1.18"
+	modImplementation "dev.emi:trinkets:3.3.1+"
 }
 
 processResources {

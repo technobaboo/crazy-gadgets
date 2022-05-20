@@ -39,26 +39,26 @@ public class CaptureBallItem extends Item {
 	}
 
 	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-		if(entity instanceof LivingEntity && !(entity instanceof PlayerEntity)) {
-			if(!stack.hasNbt()) {
-				if(!user.world.isClient()) {
+		if (entity instanceof LivingEntity && !(entity instanceof PlayerEntity)) {
+			if (!stack.hasNbt()) {
+				if (!user.world.isClient()) {
 					ItemStack newOrb = new ItemStack(CrazyGadgetsItems.CAPTURE_BALL, 1);
 					NbtCompound itemNbt = newOrb.getOrCreateNbt();
 					NbtCompound entityNbt = newOrb.getOrCreateSubNbt("CapturedEntity");
 					entity.saveNbt(entityNbt);
-					if(entity instanceof Tameable)
+					if (entity instanceof Tameable)
 						itemNbt.putString("CapturedEntityType", "tameable");
-					else if(entity instanceof Angerable)
+					else if (entity instanceof Angerable)
 						itemNbt.putString("CapturedEntityType", "neutral");
-					else if(entity instanceof PassiveEntity)
+					else if (entity instanceof PassiveEntity)
 						itemNbt.putString("CapturedEntityType", "passive");
-					else if(entity instanceof HostileEntity)
+					else if (entity instanceof HostileEntity)
 						itemNbt.putString("CapturedEntityType", "hostile");
 					entity.saveNbt(entityNbt);
 					entity.discard();
 					int count = stack.getCount();
-					if(!user.isCreative())
-						user.setStackInHand(hand, new ItemStack(CrazyGadgetsItems.CAPTURE_BALL, count-1));
+					if (!user.isCreative())
+						user.setStackInHand(hand, new ItemStack(CrazyGadgetsItems.CAPTURE_BALL, count - 1));
 					user.giveItemStack(newOrb);
 					user.incrementStat(Stats.USED.getOrCreateStat(this));
 				}
@@ -69,20 +69,23 @@ public class CaptureBallItem extends Item {
 
 		return ActionResult.FAIL;
 	}
+
 	public ActionResult useOnBlock(ItemUsageContext context) {
 		ItemStack stack = context.getStack();
-		if(stack.hasNbt()) {
+		if (stack.hasNbt()) {
 			World world = context.getWorld();
-			if(!world.isClient()) {
+			if (!world.isClient()) {
 				// BlockPos blockPos = context.getBlockPos();
 				Vec3d pos = context.getHitPos();
-				Entity entity = EntityType.loadEntityWithPassengers(stack.getSubNbt("CapturedEntity"), world, (entityx) -> { 
-					entityx.refreshPositionAndAngles(pos.getX(), pos.getY(), pos.getZ(), entityx.getYaw(), entityx.getPitch());
-					return entityx;
-				});
+				Entity entity = EntityType.loadEntityWithPassengers(stack.getSubNbt("CapturedEntity"), world,
+						(entityx) -> {
+							entityx.refreshPositionAndAngles(pos.getX(), pos.getY(), pos.getZ(), entityx.getYaw(),
+									entityx.getPitch());
+							return entityx;
+						});
 				world.spawnEntity(entity);
 				context.getPlayer().setStackInHand(context.getHand(), ItemStack.EMPTY);
-				if(!context.getPlayer().isCreative())
+				if (!context.getPlayer().isCreative())
 					context.getPlayer().giveItemStack(new ItemStack(CrazyGadgetsItems.CAPTURE_BALL, 1));
 				context.getPlayer().incrementStat(Stats.USED.getOrCreateStat(this));
 			}
@@ -95,7 +98,7 @@ public class CaptureBallItem extends Item {
 
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		ItemStack stackInHand = user.getStackInHand(hand);
-		if(!stackInHand.hasNbt() && !used) {
+		if (!stackInHand.hasNbt() && !used) {
 			throwProjectile(world, user, stackInHand);
 			return TypedActionResult.success(stackInHand, true);
 		} else {
@@ -105,13 +108,14 @@ public class CaptureBallItem extends Item {
 	}
 
 	protected void throwProjectile(World world, PlayerEntity user, ItemStack stack) {
-		world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+		world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW,
+				SoundCategory.NEUTRAL, 1.0F, 1.0F);
 		user.getItemCooldownManager().set(this, 1);
 
 		if (!world.isClient) {
 			CaptureBallEntity captureBallEntity = new CaptureBallEntity(world, user);
 			captureBallEntity.setItem(stack);
-//			captureBallEntity.setProperties(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
+			captureBallEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 0F);
 			world.spawnEntity(captureBallEntity);
 		}
 		user.incrementStat(Stats.USED.getOrCreateStat(this));
@@ -122,24 +126,31 @@ public class CaptureBallItem extends Item {
 
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-		if(itemStack.hasNbt()) {
+		if (itemStack.hasNbt()) {
 			String entityIDString = itemStack.getSubNbt("CapturedEntity").getString("id");
 			Identifier entityID = new Identifier(entityIDString);
 			Optional<EntityType<?>> entityType = EntityType.get(entityIDString);
-			if(!entityType.isEmpty()) {
+			if (!entityType.isEmpty()) {
 				Formatting formatting = Formatting.RESET;
 				String entityTypeString = itemStack.getNbt().getString("CapturedEntityType");
 
-				if(entityTypeString == "hostile")
-					formatting = Formatting.RED;
-				else if(entityTypeString == "passive")
-					formatting = Formatting.GREEN;
-				else if(entityTypeString == "neutral")
-					formatting = Formatting.YELLOW;
-				else if(entityTypeString == "tameable")
-					formatting = Formatting.AQUA;
+				switch (entityTypeString) {
+					case "hostile":
+						formatting = Formatting.RED;
+						break;
+					case "passive":
+						formatting = Formatting.GREEN;
+						break;
+					case "neutral":
+						formatting = Formatting.YELLOW;
+						break;
+					case "tameable":
+						formatting = Formatting.AQUA;
+						break;
+				}
 
-				tooltip.add( new TranslatableText("entity."+entityID.getNamespace()+"."+entityID.getPath()).formatted(formatting) );
+				tooltip.add(new TranslatableText("entity." + entityID.getNamespace() + "." + entityID.getPath())
+						.formatted(formatting));
 			}
 		}
 	}
