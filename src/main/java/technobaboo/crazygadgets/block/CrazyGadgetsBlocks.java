@@ -26,6 +26,9 @@ public class CrazyGadgetsBlocks {
 			new MagneticIronBlock(FabricBlockSettings.copyOf(Blocks.BEDROCK)
 					.sounds(BlockSoundGroup.COPPER).luminance(12).solid().resistance(100000000.0f)));
 
+	public static void init() {
+	}
+
 	protected static Block register(String id, Block block) {
 		Registry.register(Registries.BLOCK, new Identifier(CrazyGadgets.MOD_ID, id), block);
 		CrazyGadgetsItems.registerItem(id, new BlockItem(block, new FabricItemSettings()));

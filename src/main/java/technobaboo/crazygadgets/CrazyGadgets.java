@@ -1,6 +1,7 @@
 package technobaboo.crazygadgets;
 
 import net.fabricmc.api.ModInitializer;
+import technobaboo.crazygadgets.block.CrazyGadgetsBlocks;
 import technobaboo.crazygadgets.item.CrazyGadgetsItems;
 import technobaboo.crazygadgets.packet.KeybindPacket;
 
@@ -14,6 +15,7 @@ public class CrazyGadgets implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		CrazyGadgetsItems.init();
+		CrazyGadgetsBlocks.init();
 		KeybindPacket.registerServerHandler();
 
 		LOGGER.info("Crazy Gadgets loaded!");
