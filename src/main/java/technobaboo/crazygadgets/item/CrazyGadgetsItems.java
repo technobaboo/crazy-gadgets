@@ -22,7 +22,7 @@ import technobaboo.crazygadgets.entity.ChronoPearlEntity;
 
 public class CrazyGadgetsItems {
 	public static final ItemGroup ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
-			new Identifier(CrazyGadgets.MODID, "general"),
+			new Identifier(CrazyGadgets.MOD_ID, "general"),
 			FabricItemGroup.builder().displayName(Text.translatable("itemGroup.crazy_gadgets.general"))
 					.icon(() -> new ItemStack(CrazyGadgetsItems.MAGNETIC_IRON_INGOT))
 					.build());
@@ -69,7 +69,7 @@ public class CrazyGadgetsItems {
 	}
 
 	public static <T extends Item> T registerItem(String id, T item) {
-		Registry.register(Registries.ITEM, new Identifier(CrazyGadgets.MODID, id), item);
+		Registry.register(Registries.ITEM, new Identifier(CrazyGadgets.MOD_ID, id), item);
 		ItemGroupEvents.modifyEntriesEvent(Registries.ITEM_GROUP.getEntry(ITEM_GROUP).getKey().get())
 				.register(content -> content.add(item));
 		return item;

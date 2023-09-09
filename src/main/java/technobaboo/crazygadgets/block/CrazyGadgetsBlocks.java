@@ -24,7 +24,7 @@ public class CrazyGadgetsBlocks {
 					.sounds(BlockSoundGroup.NETHERITE)));
 
 	protected static Block register(String id, Block block) {
-		Registry.register(Registries.BLOCK, new Identifier(CrazyGadgets.MODID, id), block);
+		Registry.register(Registries.BLOCK, new Identifier(CrazyGadgets.MOD_ID, id), block);
 		CrazyGadgetsItems.registerItem(id, new BlockItem(block, new FabricItemSettings()));
 		return block;
 	}

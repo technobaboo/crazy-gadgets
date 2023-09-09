@@ -6,8 +6,8 @@
 		"defaultRequire": 1
 	},
 	"mixins": [
-	"LightningRodBlockMixin",
-	"LivingEntityTickMixin",
-	"PlayerTickMixin"
+		"LightningRodBlockMixin",
+		"LivingEntityTickMixin",
+		"PlayerTickMixin"
 	]
 }

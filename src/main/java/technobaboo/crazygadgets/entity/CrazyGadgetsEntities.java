@@ -25,6 +25,6 @@ public class CrazyGadgetsEntities {
 			.build());
 
 	static <T extends Entity> EntityType<T> register(String id, EntityType<T> entity) {
-		return Registry.register(Registries.ENTITY_TYPE, new Identifier(CrazyGadgets.MODID, id), entity);
+		return Registry.register(Registries.ENTITY_TYPE, new Identifier(CrazyGadgets.MOD_ID, id), entity);
 	}
 }

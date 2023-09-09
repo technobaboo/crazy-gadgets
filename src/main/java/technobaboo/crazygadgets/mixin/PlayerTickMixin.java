@@ -21,7 +21,7 @@ public abstract class PlayerTickMixin extends LivingEntity {
     @Inject(at = @At("TAIL"), method = "tick")
     private void playerTick(CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        Engine.playerTick(player);
+        Engine.fly(player);
     }
 
 }
