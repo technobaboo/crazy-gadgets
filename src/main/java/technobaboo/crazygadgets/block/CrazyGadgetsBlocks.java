@@ -22,6 +22,9 @@ public class CrazyGadgetsBlocks {
 	public static final Block MAGNETIC_IRON_BLOCK = register("magnetic_iron_block",
 			new MagneticIronBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
 					.sounds(BlockSoundGroup.NETHERITE)));
+	public static final Block NEGATIVE_MASS_BLOCK = register("negative_mass",
+			new MagneticIronBlock(FabricBlockSettings.copyOf(Blocks.BEDROCK)
+					.sounds(BlockSoundGroup.COPPER).luminance(12).solid().resistance(100000000.0f)));
 
 	protected static Block register(String id, Block block) {
 		Registry.register(Registries.BLOCK, new Identifier(CrazyGadgets.MOD_ID, id), block);
