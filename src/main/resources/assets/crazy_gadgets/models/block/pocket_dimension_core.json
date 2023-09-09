@@ -1,0 +1,37 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "item/pocket_dimension_core"
+	},
+	"elements": [
+		{
+			"name": "core",
+			"from": [4, 0, 4],
+			"to": [12, 16, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"color": 4,
+			"faces": {
+				"north": {"uv": [0, 0, 12, 16], "texture": "#missing"},
+				"east": {"uv": [0, 0, 12, 16], "texture": "#missing"},
+				"south": {"uv": [0, 0, 12, 16], "texture": "#missing"},
+				"west": {"uv": [0, 0, 12, 16], "texture": "#missing"},
+				"up": {"uv": [0, 0, 12, 12], "texture": "#missing"},
+				"down": {"uv": [0, 0, 12, 12], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [4, 10, 12],
+			"to": [13, 14, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 12, 8]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [7, 4, 16, 8], "texture": "#missing"},
+				"east": {"uv": [7, 10, 11, 11], "texture": "#missing"},
+				"south": {"uv": [7, 0, 16, 4], "texture": "#missing"},
+				"west": {"uv": [12, 10, 16, 11], "texture": "#missing"},
+				"up": {"uv": [7, 8, 16, 9], "texture": "#missing"},
+				"down": {"uv": [7, 9, 16, 10], "rotation": 90, "texture": "#missing"}
+			}
+		}
+	]
+}
