@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingItemEntity;
 import technobaboo.crazygadgets.entity.CrazyGadgetsEntities;
 import technobaboo.crazygadgets.renderers.ChronoPearlEntityRenderer;
+import technobaboo.crazygadgets.renderers.IonEngineTrinketRenderer;
 import technobaboo.crazygadgets.util.ClientModKeyBindings;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.entity.Entity;
@@ -18,6 +19,7 @@ public class CrazyGadgetsClient implements ClientModInitializer {
 				CrazyGadgetsEntities.CAPTURE_BALL);
 		EntityRendererRegistry.register(CrazyGadgetsEntities.CHRONO_PEARL, ChronoPearlEntityRenderer::new);
 		ClientTickEvents.START_CLIENT_TICK.register(ClientModKeyBindings::onStartTick);
+		IonEngineTrinketRenderer.addToRegistry();
 	}
 
 	@SafeVarargs
