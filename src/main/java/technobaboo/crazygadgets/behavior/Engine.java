@@ -11,6 +11,12 @@ import technobaboo.crazygadgets.util.ModKeyBindings;
 import static technobaboo.crazygadgets.item.CrazyGadgetsItems.ION_ENGINE;
 
 public class Engine {
+    public static boolean flying(PlayerEntity player) {
+        return player.getAbilities().flying ||
+                (!player.isOnGround() && ModKeyBindings.getPlayer(player).isPressingJump()) ||
+                player.isFallFlying();
+    }
+
     public static void fly(PlayerEntity player) {
         // Don't fly in creative
         if (player.isCreative()) {
